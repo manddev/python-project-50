@@ -1,9 +1,8 @@
-import json
-
+from gendiff.converter import get_data
 
 def generate_diff(filepath1, filepath2):
-    dict1 = json.load(open(filepath1))
-    dict2 = json.load(open(filepath2))
+    dict1 = get_data(filepath1)
+    dict2 = get_data(filepath2)
     keys = sorted(dict1.keys() | dict2.keys())
 
     def get_string(key):
@@ -21,3 +20,4 @@ def generate_diff(filepath1, filepath2):
     strings = list(map(lambda key: get_string(key), keys))
     result =  '{\n' + '\n'.join(strings) + '\n}'
     print(result)
+    return result
