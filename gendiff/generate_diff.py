@@ -1,5 +1,6 @@
 from gendiff.converter import get_data
 
+
 def generate_diff(filepath1, filepath2):
     dict1 = get_data(filepath1)
     dict2 = get_data(filepath2)
@@ -18,6 +19,6 @@ def generate_diff(filepath1, filepath2):
             return f'{not_changed}{key}: {dict1[key]}'
         return f'{deleted}{key}: {dict1[key]}\n{added}{key}: {dict2[key]}'
     strings = list(map(lambda key: get_string(key), keys))
-    result =  '{\n' + '\n'.join(strings) + '\n}'
+    result = '{\n' + '\n'.join(strings) + '\n}'
     print(result)
     return result
