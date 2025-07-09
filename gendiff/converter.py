@@ -1,6 +1,7 @@
-import yaml
 import json
 from pathlib import Path
+
+import yaml
 
 
 def get_full_path(file_name):
