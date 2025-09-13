@@ -1,24 +1,14 @@
-from gendiff.converter import get_data
+from parsers import get_data
+from get_diff import get_diff
+from formatters.make_format import make_format
 
 
-def generate_diff(filepath1, filepath2):
+def generate_diff(filepath1, filepath2, format='stylish'):
     dict1 = get_data(filepath1)
     dict2 = get_data(filepath2)
-    keys = sorted(dict1.keys() | dict2.keys())
+    diff = get_diff(dict1, dict2)
+    return make_format(diff, format)
 
-    def get_string(key):
-        deleted = """  - """
-        added = """  + """
-        not_changed = "    "
-        
-        if key not in dict1:
-            return f'{added}{key}: {dict2[key]}'
-        if key not in dict2:
-            return f'{deleted}{key}: {dict1[key]}'
-        if dict1[key] == dict2[key]:
-            return f'{not_changed}{key}: {dict1[key]}'
-        return f'{deleted}{key}: {dict1[key]}\n{added}{key}: {dict2[key]}'
-    strings = list(map(lambda key: get_string(key), keys))
-    result = '{\n' + '\n'.join(strings) + '\n}'
-    print(result)
-    return result
+
+
+print(generate_diff('file1.json', 'file2.json'))
