@@ -24,23 +24,20 @@ def format_stylish(diff, depth=1):
     for item in diff:
         name = item["name"]
         node_status = item["node_status"]
-        value = stringify(item.get("value"), depth + 1)
-        old_value = stringify(item.get("old_value"), depth + 1)
-        new_value = stringify(item.get("new_value"), depth + 1)
-        children = format_stylish(item.get("children"), depth + 1)
 
         match(node_status):
             case "unchanged":
-                lines.append(f"{key_ind}  {name}: {value}")
+                lines.append(f"{key_ind}  {name}: {stringify(item.get("value", " "), depth + 1)}")
             case "added":
-                lines.append(f"{key_ind}+ {name}: {value}")
+                lines.append(f"{key_ind}+ {name}: {stringify(item.get("value", " "), depth + 1)}")
             case "deleted":
-                lines.append(f"{key_ind}- {name}: {value}")
+                lines.append(f"{key_ind}- {name}: {stringify(item.get("value", " "), depth + 1)}")
             case "nested":
+                children = format_stylish(item.get("children"), depth + 1)
                 lines.append(f"{key_ind}  {name}: {children}")
             case "modified":
-                lines.append(f"{key_ind}- {name}: {old_value}")
-                lines.append(f"{key_ind}+ {name}: {new_value}")
+                lines.append(f"{key_ind}- {name}: {stringify(item.get("old_value", " "), depth + 1)}")
+                lines.append(f"{key_ind}+ {name}: {stringify(item.get("new_value", " "), depth + 1)}")
     
     return "{\n" + "\n".join(lines) + f"\n{end_ind}}}"
 
