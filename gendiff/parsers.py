@@ -1,11 +1,10 @@
 import json
 from pathlib import Path
-
 import yaml
 
 
 def get_full_path(file_name):
-    return Path(__file__).parent / 'tests' / 'test_data' / file_name
+    return Path(__file__).parent.parent / 'tests' / 'test_data' / file_name
 
 
 def get_data(file_name):
