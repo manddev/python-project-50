@@ -1,6 +1,6 @@
 from gendiff.formatters.make_format import make_format
-from gendiff.get_diff import get_diff
-from gendiff.parsers import get_data
+from gendiff.scripts.get_diff import get_diff
+from gendiff.scripts.parsers import get_data
 
 
 def generate_diff(filepath1, filepath2, format='stylish'):
@@ -10,7 +10,7 @@ def generate_diff(filepath1, filepath2, format='stylish'):
     return make_format(diff)
 
 
-generate_diff("file1.json", "file2.json")
+
 
 
 
