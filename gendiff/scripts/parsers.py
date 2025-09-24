@@ -5,7 +5,10 @@ import yaml
 
 
 def get_full_path(file_name):
-    return Path(__file__).parent.parent / 'tests' / 'test_data' / file_name
+    current_dir = Path.cwd()
+    return current_dir / 'tests' / 'test_data' / file_name
+
+print(get_full_path('file2.json'))
 
 
 def get_data(file_name):
