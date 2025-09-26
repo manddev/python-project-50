@@ -45,20 +45,17 @@ def format_stylish(diff, depth=1):
             case "unchanged":
                 lines.append(
                     f"{key_ind}  {name}: {stringify(value, depth + 1)}"
-                )
-                             
+                )       
             case "modified":
                 lines.append(
                     f"{key_ind}- {name}: {stringify(old_value, depth + 1)}"
-                )
-                             
+                )          
                 lines.append(
                     f"{key_ind}+ {name}: {stringify(new_value, depth + 1)}"
-                )
-                             
+                )           
             case "nested":
                 lines.append(
                     f"{key_ind}  {name}: {format_stylish(children, depth + 1)}"
                 )
-                             
+           
     return "{\n" + "\n".join(lines) + f"\n{close_ind}}}"
