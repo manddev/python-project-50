@@ -8,6 +8,7 @@ def get_full_path(file_name):
     current_dir = Path.cwd()
     return current_dir / 'tests' / 'test_data' / file_name
 
+
 print(get_full_path('file2.json'))
 
 

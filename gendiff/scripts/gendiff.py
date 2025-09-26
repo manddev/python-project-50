@@ -15,7 +15,6 @@ def make_parser():
     print(generate_diff(args.first_file, args.second_file, args.__format__))
 
 
-
 def main():
     make_parser()
 

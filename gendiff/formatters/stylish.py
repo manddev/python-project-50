@@ -12,7 +12,8 @@ def stringify(value, depth):
     ind_size = depth * SPACES_COUNT
     indent = SEPARATOR * ind_size
     close_ind = SEPARATOR * (ind_size - SPACES_COUNT)
-    lines = [f"{indent}{key}: {stringify(val, depth + 1)}" for key, val in value.items()]
+    lines = [f"{indent}{key}: {stringify(val, depth + 1)}"
+              for key, val in value.items()]
 
     return "{\n" + "\n".join(lines) + f"\n{close_ind}}}"
 
@@ -31,17 +32,23 @@ def format_stylish(diff, depth=1):
         new_value = node.get("new_value", " ")
         children = node.get("children", " ")
         
-        match(node_status):
+        match (node_status):
             case "added":
-                lines.append(f"{key_ind}+ {name}: {stringify(value, depth + 1)}")
+                lines.append(f"{key_ind}+ \
+                             {name}: {stringify(value, depth + 1)}")
             case "deleted":
-                lines.append(f"{key_ind}- {name}: {stringify(value, depth + 1)}")
+                lines.append(f"{key_ind}- \
+                             {name}: {stringify(value, depth + 1)}")
             case "unchanged":
-                lines.append(f"{key_ind}  {name}: {stringify(value, depth + 1)}")
+                lines.append(f"{key_ind}  \
+                             {name}: {stringify(value, depth + 1)}")
             case "modified":
-                lines.append(f"{key_ind}- {name}: {stringify(old_value, depth + 1)}")
-                lines.append(f"{key_ind}+ {name}: {stringify(new_value, depth + 1)}")
+                lines.append(f"{key_ind}- \
+                             {name}: {stringify(old_value, depth + 1)}")
+                lines.append(f"{key_ind}+ \
+                             {name}: {stringify(new_value, depth + 1)}")
             case "nested":
-                lines.append(f"{key_ind}  {name}: {format_stylish(children, depth + 1)}")
+                lines.append(f"{key_ind}  \
+                             {name}: {format_stylish(children, depth + 1)}")
 
     return "{\n" + "\n".join(lines) + f"\n{close_ind}}}"
