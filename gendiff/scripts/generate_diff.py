@@ -8,11 +8,3 @@ def generate_diff(filepath1, filepath2, format='stylish'):
     dict2 = get_data(filepath2)
     diff = get_diff(dict1, dict2)
     return make_format(diff)
-
-
-
-
-
-
-
-
