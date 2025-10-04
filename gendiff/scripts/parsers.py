@@ -9,9 +9,6 @@ def get_full_path(file_name):
     return current_dir / 'tests' / 'test_data' / file_name
 
 
-print(get_full_path('file2.json'))
-
-
 def get_data(file_name):
     if file_name.endswith('.json'):
         return json.load(open(get_full_path(file_name)))
