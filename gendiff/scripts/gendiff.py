@@ -9,14 +9,17 @@ def make_parser():
         )
     parser.add_argument('first_file')
     parser.add_argument('second_file')
-    parser.add_argument('-f', '--format', help='set format of output')
-    args = parser.parse_args()
-
-    print(generate_diff(args.first_file, args.second_file, args.__format__))
+    parser.add_argument('-f', '--format',
+                        help='set format of output',
+                        type=str,
+                        default='stylish')
+    return parser.parse_args()
 
 
 def main():
-    make_parser()
+    args = make_parser()
+
+    print(generate_diff(args.first_file, args.second_file, format=args.format))
 
 
 if __name__ == '__main__':
