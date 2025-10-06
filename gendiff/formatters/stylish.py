@@ -6,16 +6,16 @@ NODE_KEY_OFFSET = 2
 def stringify(value, depth):
     if isinstance(value, bool):
         return str(value).lower()
-    if not isinstance(value, dict):
-        return str(value)
-    
-    ind_size = depth * SPACES_COUNT
-    indent = SEPARATOR * ind_size
-    close_ind = SEPARATOR * (ind_size - SPACES_COUNT)
-    lines = [f"{indent}{key}: {stringify(val, depth + 1)}"
+    if isinstance(value, dict):
+        ind_size = depth * SPACES_COUNT
+        indent = SEPARATOR * ind_size
+        close_ind = SEPARATOR * (ind_size - SPACES_COUNT)
+        lines = [f"{indent}{key}: {stringify(val, depth + 1)}"
               for key, val in value.items()]
-
-    return "{\n" + "\n".join(lines) + f"\n{close_ind}}}"
+        return "{\n" + "\n".join(lines) + f"\n{close_ind}}}"
+    elif value is None:
+        return "null"
+    return str(value)
 
 
 def format_stylish(diff, depth=1):

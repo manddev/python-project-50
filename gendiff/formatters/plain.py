@@ -14,6 +14,7 @@ def format_plain(diff, path=''):
     PROP = "Property "
     ADDED = " was added with value: "
     REMOVED = " was removed"
+    UPD = " was updated. From "
 
     lines = []
 
@@ -26,17 +27,17 @@ def format_plain(diff, path=''):
             case "added":
                 value = stringify(node.get("value", ""))
                 return (
-                    f"{PROP}{cur_path}{ADDED}{value}"
+                    f"{PROP}'{cur_path}'{ADDED}{value}"
                 )
             case "deleted":
                 return (
-                    f"{PROP}{cur_path}{REMOVED}"
+                    f"{PROP}'{cur_path}'{REMOVED}"
                 )
             case "modified":
                 old_val = stringify(node.get("old_value", ""))
                 new_val = stringify(node.get("new_value", ""))
                 return (
-                    f"{PROP}{cur_path} was updated. From {old_val} to {new_val}"
+                    f"{PROP}'{cur_path}'{UPD}{old_val} to {new_val}"
                 )
             case "nested":
                 children = node.get("children", "")
