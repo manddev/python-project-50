@@ -11,7 +11,7 @@ def test_json():
         path.join(CURRENT_DIR, 'test_data', 'expected_stylish.txt')
         ) \
         .read()
-    actual == expected
+    assert actual == expected
 
 
 def test_yaml():
@@ -20,7 +20,7 @@ def test_yaml():
         path.join(CURRENT_DIR, 'test_data', 'expected_stylish.txt')
         ) \
         .read()
-    actual == expected
+    assert actual == expected
 
 
 def test_json_plain():
@@ -29,7 +29,7 @@ def test_json_plain():
         path.join(CURRENT_DIR, 'test_data', 'expected_plain.txt')
         ) \
         .read()
-    actual == expected
+    assert actual == expected
 
 
 def test_yaml_plain():
@@ -38,4 +38,4 @@ def test_yaml_plain():
         path.join(CURRENT_DIR, 'test_data', "expected_plain.txt")
         ) \
         .read()
-    actual == expected    
+    assert actual == expected    
