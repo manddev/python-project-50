@@ -2,6 +2,8 @@
 
 [![Actions Status](https://github.com/manddev/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/manddev/python-project-50/actions)
 
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=manddev_python-project-50&metric=coverage)](https://sonarcloud.io/summary/new_code?id=manddev_python-project-50)
+
 Welcome to Difference comparator.
 To use this app install uv package-manager.
 `sudo apt istall curl`
@@ -21,6 +23,9 @@ Supported output formats:
 - plain
 - json
 
+To delete this app:
+`make remove-package`
+
 ### Flat json comparsion in stylish output format
 
 [![asciicast](https://asciinema.org/a/6tDJZmAWRwVCQEGvZrYO2ixiV.svg)](https://asciinema.org/a/6tDJZmAWRwVCQEGvZrYO2ixiV)
@@ -28,30 +33,6 @@ Supported output formats:
 ### Flat yml comparsion in stylish outup format
 
 [![asciicast](https://asciinema.org/a/3QlxFvZBdE28BH6xgmiAvkg7Y.svg)](https://asc iinema.org/a/3QlxFvZBdE28BH6xgmiAvkg7Y)
-
-### Hexlet tests and linter status:
-
-[![Actions Status](https://github.com/manddev/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/manddev/python-project-50/actions)
-
-Welcome to Difference comparator.
-To use this app install uv package-manager.
-`sudo apt istall curl`
-`curl -LsSf https://astral.sh/uv/install.sh | sh`
-`git clone [text](https://github.com/manddev/python-project-50.git)`
-`make unpack` - to install app
-`make remove-package` = to uninstall app
-
-`gendiff -h` to see manual
-Supprted input file formats to get diff:
-
-- json
-- yml
-
-Supported output formats:
-
-- stylish(by default)
-- plain
-- json
 
 ### Flat json comparsion in stylish output format
 
