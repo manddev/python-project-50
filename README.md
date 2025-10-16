@@ -32,7 +32,7 @@ To delete this app:
 
 ### Flat yml comparsion in stylish outup format
 
-[![asciicast](https://asciinema.org/a/3QlxFvZBdE28BH6xgmiAvkg7Y.svg)](https://asc iinema.org/a/3QlxFvZBdE28BH6xgmiAvkg7Y)
+[![asciicast](https://asciinema.org/a/3QlxFvZBdE28BH6xgmiAvkg7Y.svg)](https://asciinema.org/a/3QlxFvZBdE28BH6xgmiAvkg7Y)
 
 ### Flat json comparsion in stylish output format
 
